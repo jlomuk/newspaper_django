@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+	{% for article in object_list  %}
+		<div class="card">
+			<div class="card-header">
+				<a class="font-weight-bolt" href="{% url 'article_detail' article.pk %}">{{article.title}}</a>
+				<span class="text-muted">~Автор {{ article.author }}   |   Дата {{ article.date }} </span>
+			</div>
+			<div class="card-body">
+				{{ article.body }}
+			</div>
+			<div class="card-footer text-center text-muted">
+				<a href="{% url 'article_edit' article.pk %}">Редактировать</a> | 
+				<a href="{% url 'article_delete' article.pk %}">Удалить</a>
+				
+			</div>
+		</div>
+		<br>
+		
+	{% endfor %}
+	
+{% endblock content %}

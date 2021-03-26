@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<h1>Редактирование статьи</h1>
+	<form action="" method="post">
+		{% csrf_token %}
+		{{form.as_p}}
+		<button class='btn btn-success ml-2' type="submit">Изменить</button>
+		<a class="btn btn-primary" href="{% url 'article_list' %}" role="button">Отмена</a>
+	</form>
+
+{% endblock content %}
