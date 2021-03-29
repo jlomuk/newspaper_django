@@ -13,11 +13,17 @@
 			<div class="card-footer text-center text-muted">
 				<a href="{% url 'article_edit' article.pk %}">Редактировать</a> | 
 				<a href="{% url 'article_delete' article.pk %}">Удалить</a>
-				
+			</div>
+			<div class="card-footer">
+					<h3>Комментарии:</h3><br>
+				{% for comment in article.comments.all %}
+					<p>
+						<span class="font-weight-bolt">{{ comment.author}}</span>
+						{{ comment }}
+					</p>
+				{% endfor %}
 			</div>
 		</div>
 		<br>
-		
 	{% endfor %}
-	
 {% endblock content %}

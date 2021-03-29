@@ -33,7 +33,8 @@ class Comment(models.Model):
 	article = models.ForeignKey(
 		Article, 
 		on_delete=models.CASCADE,
-		verbose_name='Статья'
+		verbose_name='Статья',
+		related_name='comments'
 	)
 	comment = models.CharField(
 		max_length=150,
